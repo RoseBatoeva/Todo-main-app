@@ -69,7 +69,36 @@ function addNewTodo() {
 
 addNewTodo();
 
+///////////////////////////////
+class Todo {
+    constructor (title) {
+        this.title = title;
+        this.checked = false;
+    }
+    
+    render () {
+        const todo = document.createElement('div');
 
+        todo.innerHTML = `
+        <div class="todo">
+            <div class="emptyCircle">
+                <img src="img/icon-check.svg" alt="icon-check" class="icon-check hidden">
+            </div>
+            ${this.title}
+            <img src="img/icon-cross.svg" alt="icon-cross" class="close-button hidden">
+        </div>`;
+        
+        return todo;
+    }
+}
+
+const newTodo1 = new Todo ("Thomas");
+const newTodo2 = new Todo ("Rose");
+
+let todoArray = [];
+
+todoArray.push(newTodo1);
+todoArray.push(newTodo2);
 
 
 
