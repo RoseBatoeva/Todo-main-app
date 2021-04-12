@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap');
+
+body {
+    font-family: 'Josefin Sans', sans-serif;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background: url(../img/bg-desktop-light.jpg) no-repeat top center;
+
+}
+
+footer {
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: hsl(236, 9%, 61%);
+}
+
+._container {
+    width: 500px;
+    background-color: #fff;
+    border-radius: 5px;
+}
+
+.hidden {
+    visibility: hidden;
+    transition: ease-in-out 300ms;
+}
+
+.emptyCircle {
+    width: 20px;
+    height: 20px;
+    margin-right: 20px;
+    border: solid 1px hsl(236, 9%, 61%) ;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.checked {
+    color:  hsl(240, 2%, 74%);
+    text-decoration: line-through;
+}
+
+.checked-circle { 
+    background: linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+}
+
+@media (max-width: 530px) {
+    body {
+        background: url(../img/bg-mobile-light.jpg) 0 0/100% auto no-repeat;
+    }
+    
+    ._container {
+        width: 365px;
+    }
+
+}
