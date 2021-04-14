@@ -49,6 +49,8 @@
 
 .close-button {
     padding: 10px;
+    order: 999;
+    margin-left: auto;
 
     &:hover {
         visibility: visible;

@@ -208,6 +208,8 @@ header {
 
 .close-button {
   padding: 10px;
+  order: 999;
+  margin-left: auto;
 }
 .close-button:hover {
   visibility: visible;

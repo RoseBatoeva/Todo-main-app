@@ -12,9 +12,9 @@ class Todo {
         <div class="todo">
             <div class="emptyCircle">
                 <img src="img/icon-check.svg" alt="icon-check" class="check-button hidden">
-            </div>
-            <div>${this.title}</div>
-            <img src="img/icon-cross.svg" alt="icon-cross" class="close-button hidden">
+            </div>          
+                <div>${this.title}</div>
+                <img src="img/icon-cross.svg" alt="icon-cross" class="close-button hidden">
         </div>`;
         
         return todo;
