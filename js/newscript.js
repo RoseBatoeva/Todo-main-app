@@ -14,7 +14,7 @@ class Todo {
             <div class="emptyCircle">
                 <img src="img/icon-check.svg" alt="icon-check" id ="check-button" class="hidden">
             </div>
-            ${this.title}
+            <div>${this.title}</div>
         </div>`;
         
         return todo;
@@ -65,12 +65,14 @@ listTodo.addEventListener('mouseout', (e) => {
 });
 
 
-//Delete item if click on close-button 
+//Toggle checked classes if ckeci on checkmark 
 
 listTodo.addEventListener('click', (e) => {
-    if(e.target.classList.contains('close-button')) {
-        e.target.parentElement.remove();
-    } 
+    if(e.target.classList.contains('emptyCircle')) {
+        e.target.classList.toggle('checked-circle');
+        e.target.firstElementChild.classList.toggle('hidden');
+        e.target.nextElementSibling.classList.toggle('checked');
+    }; 
 });
 
 //
