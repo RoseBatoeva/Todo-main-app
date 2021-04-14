@@ -3,7 +3,6 @@ const input = document.querySelector('input');
 class Todo {
     constructor (title) {
         this.title = title;
-        this.checked = false;
     }
     
     render () {
@@ -26,7 +25,6 @@ class Todo {
 function createTodo() {
     const newDiv = new Todo (input.value);
     const newTodo = newDiv.render(); 
-    // console.log(newTodo);
     
     document.querySelector(".todo-list__items").append(newTodo);
 
