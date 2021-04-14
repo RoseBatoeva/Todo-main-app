@@ -15,6 +15,7 @@ class Todo {
                 <img src="img/icon-check.svg" alt="icon-check" id ="check-button" class="hidden">
             </div>
             <div>${this.title}</div>
+            <img src="img/icon-cross.svg" alt="icon-cross" id ="cross-button" class="hidden">
         </div>`;
         
         return todo;
@@ -54,13 +55,13 @@ const listTodo = document.querySelector('.todo-list__items');
 
 listTodo.addEventListener('mouseover', (e) => {
     if(e.target.className == 'todo') {
-        e.target.classList.add('close-button');
+        e.target.lastElementChild.classList.remove('hidden');
     }
 });
 
 listTodo.addEventListener('mouseout', (e) => {
-    if(e.target.classList.contains('close-button')) {
-        e.target.classList.remove('close-button');
+    if(e.target.className == 'todo') {
+        e.target.lastElementChild.classList.add('hidden');
     }
 });
 
@@ -75,4 +76,10 @@ listTodo.addEventListener('click', (e) => {
     }; 
 });
 
-//
+//Delete item if click on close button
+
+// listTodo.addEventListener('click', (e) => {
+//     if (e.target.nextElementSibling.classList.contains('close-button')) {
+//         e.target.parentElement.remove();
+//     }
+// });
