@@ -12,10 +12,10 @@ class Todo {
         todo.innerHTML = `
         <div class="todo">
             <div class="emptyCircle">
-                <img src="img/icon-check.svg" alt="icon-check" id ="check-button" class="hidden">
+                <img src="img/icon-check.svg" alt="icon-check" class="check-button hidden">
             </div>
             <div>${this.title}</div>
-            <img src="img/icon-cross.svg" alt="icon-cross" id ="cross-button" class="hidden">
+            <img src="img/icon-cross.svg" alt="icon-cross" class="close-button hidden">
         </div>`;
         
         return todo;
@@ -26,7 +26,7 @@ class Todo {
 function createTodo() {
     const newDiv = new Todo (input.value);
     const newTodo = newDiv.render(); 
-    console.log(newTodo);
+    // console.log(newTodo);
     
     document.querySelector(".todo-list__items").append(newTodo);
 
@@ -53,33 +53,44 @@ addTodo();
 
 const listTodo = document.querySelector('.todo-list__items');
 
-listTodo.addEventListener('mouseover', (e) => {
-    if(e.target.className == 'todo') {
-        e.target.lastElementChild.classList.remove('hidden');
-    }
-});
+function toggleCloseButton() {
+    listTodo.addEventListener('mouseover', (e) => {
+        if(e.target.className == 'todo') {
+            e.target.lastElementChild.classList.remove('hidden');
+        }
+    });
+    
+    listTodo.addEventListener('mouseout', (e) => {
+        if(e.target.className == 'todo') {
+            e.target.lastElementChild.classList.add('hidden');
+        }
+    });
+}
 
-listTodo.addEventListener('mouseout', (e) => {
-    if(e.target.className == 'todo') {
-        e.target.lastElementChild.classList.add('hidden');
-    }
-});
+toggleCloseButton();
 
+//Toggle checked classes if click on checkmark 
 
-//Toggle checked classes if ckeci on checkmark 
+function checkTodo() {
+    listTodo.addEventListener('click', (e) => {
+        if(e.target.classList.contains('emptyCircle')) {
+            e.target.classList.toggle('checked-circle');
+            e.target.firstElementChild.classList.toggle('hidden');
+            e.target.nextElementSibling.classList.toggle('checked');
+        }; 
+    });
+}
 
-listTodo.addEventListener('click', (e) => {
-    if(e.target.classList.contains('emptyCircle')) {
-        e.target.classList.toggle('checked-circle');
-        e.target.firstElementChild.classList.toggle('hidden');
-        e.target.nextElementSibling.classList.toggle('checked');
-    }; 
-});
+checkTodo();
 
 //Delete item if click on close button
 
-// listTodo.addEventListener('click', (e) => {
-//     if (e.target.nextElementSibling.classList.contains('close-button')) {
-//         e.target.parentElement.remove();
-//     }
-// });
+function deleteTodo() {
+    listTodo.addEventListener('click', (e) => {
+        if (e.target.classList.contains('close-button')) {
+            e.target.parentElement.remove();
+        }
+    });
+}
+
+deleteTodo();
