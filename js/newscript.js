@@ -15,7 +15,6 @@ class Todo {
                 <img src="img/icon-check.svg" alt="icon-check" id ="check-button" class="hidden">
             </div>
             ${this.title}
-            <img src="img/icon-cross.svg" alt="icon-cross" id = "close-button" class="hidden">
         </div>`;
         
         return todo;
@@ -34,7 +33,7 @@ function createTodo() {
     return newTodo;
 }
 
-//Add new element to the list if click on "Enter";
+//Add new created element to the list if click on "Enter";
 function addTodo() {
     input.addEventListener('keydown', (e) => {
         if (e.key == "Enter") {
@@ -53,18 +52,25 @@ addTodo();
 
 const listTodo = document.querySelector('.todo-list__items');
 
-    listTodo.addEventListener('mouseover', (e) => {
-        if (e.target.className == 'todo') {
-            console.log('close');
-            e.target.classList.add('close-button');   
-        }
-    });
-    
-    // listTodo.addEventListener('mouseout', (e) => {
-    //     if (e.target.className == 'todo') {
-    //         console.log('close');
-    //         e.target.classList.remove('close-button');   
-    //     }
-    // });
+listTodo.addEventListener('mouseover', (e) => {
+    if(e.target.className == 'todo') {
+        e.target.classList.add('close-button');
+    }
+});
+
+listTodo.addEventListener('mouseout', (e) => {
+    if(e.target.classList.contains('close-button')) {
+        e.target.classList.remove('close-button');
+    }
+});
 
 
+//Delete item if click on close-button 
+
+listTodo.addEventListener('click', (e) => {
+    if(e.target.classList.contains('close-button')) {
+        e.target.parentElement.remove();
+    } 
+});
+
+//
