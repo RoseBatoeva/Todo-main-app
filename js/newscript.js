@@ -121,6 +121,7 @@ activeItemsBtn.addEventListener('click', () => {
             todos[i].classList.add('hidden')
         }
 
+        
         // filterSelection(todos[i], 'checked')
     }
 });
