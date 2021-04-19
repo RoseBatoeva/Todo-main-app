@@ -100,29 +100,31 @@ const allItemsBtn = document.querySelector('#all-items'),
 
 let todos = listTodo.children;
 
-// for (let i=0; i<todos.length; i++) {
-//     filterSelection(todos[i], 'todo')
-// }
-
-function filterSelection(item,className) {
-    if (!item.classList.contains(className)) {
-        console.log('Hello')
-        console.log(todos);
-        item.classList.add('hidden');
-
-    } else {
-        console.log('dont contain')
+allItemsBtn.addEventListener('click', () => {
+    for (let i=0; i<todos.length; i++) {
+        if (todos[i].classList.contains('todo')) {
+            todos[i].style.display="flex";
+        }
     }
-}
+});
 
 activeItemsBtn.addEventListener('click', () => {
     for (let i=0; i<todos.length; i++) {
-        if (!todos[i].classList.contains('checked')) {
-            todos[i].classList.add('hidden')
-        }
+        if (todos[i].classList.contains('checked')) {
+            todos[i].style.display="none";
+        } else if (!todos[i].classList.contains('checked')) {
+            todos[i].style.display="flex";
+        } 
+    }
+});
 
-        
-        // filterSelection(todos[i], 'checked')
+completedItemsBtn.addEventListener('click', () => {
+    for (let i=0; i<todos.length; i++) {
+        if (!todos[i].classList.contains('checked')) {
+            todos[i].style.display="none";
+        } else if (todos[i].classList.contains('checked')) {
+            todos[i].style.display="flex";
+        }
     }
 });
 
