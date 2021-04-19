@@ -108,23 +108,22 @@ allItemsBtn.addEventListener('click', () => {
     }
 });
 
-activeItemsBtn.addEventListener('click', () => {
+function filter(styleFirst,styleSecond) {
     for (let i=0; i<todos.length; i++) {
-        if (todos[i].classList.contains('checked')) {
-            todos[i].style.display="none";
-        } else if (!todos[i].classList.contains('checked')) {
-            todos[i].style.display="flex";
-        } 
+        if (!todos[i].classList.contains('checked')) {
+            todos[i].style.display = styleFirst;
+        } else if (todos[i].classList.contains('checked')) {
+            todos[i].style.display = styleSecond;
+        }
     }
+}
+
+activeItemsBtn.addEventListener('click', () => {
+    filter("flex", "none");
 });
 
 completedItemsBtn.addEventListener('click', () => {
-    for (let i=0; i<todos.length; i++) {
-        if (!todos[i].classList.contains('checked')) {
-            todos[i].style.display="none";
-        } else if (todos[i].classList.contains('checked')) {
-            todos[i].style.display="flex";
-        }
-    }
+    filter('none', "flex");
 });
+
 
