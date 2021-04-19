@@ -7,15 +7,14 @@ class Todo {
     
     render () {
         const todo = document.createElement('div');
-
+        todo.className = 'todo';
         todo.innerHTML = `
-        <div class="todo">
             <div class="emptyCircle">
                 <img src="img/icon-check.svg" alt="icon-check" class="check-button hidden">
             </div>          
                 <div>${this.title}</div>
                 <img src="img/icon-cross.svg" alt="icon-cross" class="close-button hidden">
-        </div>`;
+        `;
         
         return todo;
     }
@@ -53,13 +52,13 @@ const listTodo = document.querySelector('.todo-list__items');
 
 function toggleCloseButton() {
     listTodo.addEventListener('mouseover', (e) => {
-        if(e.target.className == 'todo') {
+        if(e.target.classList.contains('todo')) {
             e.target.lastElementChild.classList.remove('hidden');
         }
     });
     
     listTodo.addEventListener('mouseout', (e) => {
-        if(e.target.className == 'todo') {
+        if(e.target.classList.contains('todo')) {
             e.target.lastElementChild.classList.add('hidden');
         }
     });
@@ -74,7 +73,7 @@ function checkTodo() {
         if(e.target.classList.contains('emptyCircle')) {
             e.target.classList.toggle('checked-circle');
             e.target.firstElementChild.classList.toggle('hidden');
-            e.target.nextElementSibling.classList.toggle('checked');
+            e.target.parentElement.classList.toggle('checked');
         }; 
     });
 }
@@ -92,3 +91,37 @@ function deleteTodo() {
 }
 
 deleteTodo();
+
+//Filter
+
+const allItemsBtn = document.querySelector('#all-items'),
+      activeItemsBtn = document.querySelector('#active-items'), //doesnt have checked class
+      completedItemsBtn = document.querySelector('#completed-items'); // has checked class
+
+let todos = listTodo.children;
+
+// for (let i=0; i<todos.length; i++) {
+//     filterSelection(todos[i], 'todo')
+// }
+
+function filterSelection(item,className) {
+    if (!item.classList.contains(className)) {
+        console.log('Hello')
+        console.log(todos);
+        item.classList.add('hidden');
+
+    } else {
+        console.log('dont contain')
+    }
+}
+
+activeItemsBtn.addEventListener('click', () => {
+    for (let i=0; i<todos.length; i++) {
+        if (!todos[i].classList.contains('checked')) {
+            todos[i].classList.add('hidden')
+        }
+
+        // filterSelection(todos[i], 'checked')
+    }
+});
+

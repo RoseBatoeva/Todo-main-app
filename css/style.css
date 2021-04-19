@@ -96,7 +96,7 @@ footer {
 }
 
 .hidden {
-  visibility: hidden;
+  display: none;
 }
 
 .emptyCircle {
@@ -213,13 +213,14 @@ header {
   margin-left: auto;
 }
 .close-button:hover {
-  visibility: visible;
+  display: block;
 }
 
 @media (max-width: 530px) {
   .todo-list__footer {
     display: flex;
     justify-content: center;
+    text-align: center;
   }
   .todo-list__footer .todo-list__items-counter, .todo-list__footer .todo-list__clear-completed {
     display: none;

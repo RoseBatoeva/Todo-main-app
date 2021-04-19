@@ -53,7 +53,7 @@
     margin-left: auto;
 
     &:hover {
-        visibility: visible;
+        display: block;
     }
 
 }
@@ -63,6 +63,7 @@
     .todo-list__footer {
         display: flex;
         justify-content: center;
+        text-align: center;
 
         & .todo-list__items-counter, .todo-list__clear-completed{
             display: none;
