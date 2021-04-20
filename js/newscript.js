@@ -1,4 +1,13 @@
-const input = document.querySelector('input');
+const input = document.querySelector('input'),
+      listTodo = document.querySelector('.todo-list__items'),
+      allItemsBtn = document.querySelector('#all-items'),
+      activeItemsBtn = document.querySelector('#active-items'), 
+      completedItemsBtn = document.querySelector('#completed-items'),
+      clearCompletedBtn = document.querySelector('.todo-list__clear-completed'),
+      counterText = document.querySelector('#counter');
+
+let todos = listTodo.children;
+let counter = 0;
 
 class Todo {
     constructor (title) {
@@ -37,6 +46,10 @@ function addTodo() {
         if (e.key == "Enter") {
             if (input.value !== '') {
                 createTodo();
+                
+                //Counter   
+                counter = counter + 1
+                counterText.textContent = counter;
             } else {
                 alert('Please write a new todo');
             }
@@ -47,8 +60,6 @@ function addTodo() {
 addTodo();
 
 //Add hovering to a close button
-
-const listTodo = document.querySelector('.todo-list__items');
 
 function toggleCloseButton() {
     listTodo.addEventListener('mouseover', (e) => {
@@ -66,15 +77,23 @@ function toggleCloseButton() {
 
 toggleCloseButton();
 
-//Toggle checked classes if click on checkmark 
+//Toggle to checked classes if click on checkmark 
 
 function checkTodo() {
     listTodo.addEventListener('click', (e) => {
-        if(e.target.classList.contains('emptyCircle')) {
+        if (e.target.classList.contains('emptyCircle')) {
             e.target.classList.toggle('checked-circle');
             e.target.firstElementChild.classList.toggle('hidden');
             e.target.parentElement.classList.toggle('checked');
         }; 
+        //Counter
+        if (e.target.parentElement.classList.contains('checked')){
+            counter = counter - 1
+            counterText.textContent = counter;
+        } else if (e.target.parentElement.classList.contains('todo') && !e.target.parentElement.classList.contains('checked')) {
+            counter = counter + 1
+            counterText.textContent = counter;
+        }
     });
 }
 
@@ -86,6 +105,10 @@ function deleteTodo() {
     listTodo.addEventListener('click', (e) => {
         if (e.target.classList.contains('close-button')) {
             e.target.parentElement.remove();
+            
+            // Counter
+            counter = counter - 1
+            counterText.textContent = counter;
         }
     });
 }
@@ -93,12 +116,6 @@ function deleteTodo() {
 deleteTodo();
 
 //Filter
-
-const allItemsBtn = document.querySelector('#all-items'),
-      activeItemsBtn = document.querySelector('#active-items'), //doesnt have checked class
-      completedItemsBtn = document.querySelector('#completed-items'); // has checked class
-
-let todos = listTodo.children;
 
 allItemsBtn.addEventListener('click', () => {
     for (let i = 0; i < todos.length; i++) {
@@ -128,13 +145,21 @@ completedItemsBtn.addEventListener('click', () => {
 
 //Button "clear completed"
 
-const clearCompletedBtn = document.querySelector('.todo-list__clear-completed');
-
-clearCompletedBtn.addEventListener('click', () => {
-    for (let i = 0; i < todos.length; i++) {
-        if (todos[i].classList.contains('checked')) {
-            todos[i].remove();
+function clearCompleted() {
+    clearCompletedBtn.addEventListener('click', () => {
+        for (let i = 0; i < todos.length; i++) {
+            if (todos[i].classList.contains('checked')) {
+                todos[i].remove();
+            }
         }
-    }
-});
+    });  
+}
+
+clearCompleted();
+
+
+
+
+
+
 
