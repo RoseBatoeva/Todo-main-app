@@ -117,7 +117,9 @@ footer {
 }
 
 .checked-circle {
-  background: linear-gradient(#57ddff, #c058f3);
+  background-image: url(../img/icon-check.svg), linear-gradient(#57ddff, #c058f3);
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 @media (max-width: 530px) {

@@ -44,8 +44,14 @@ footer {
     text-decoration: line-through;
 }
 
+// .checked-circle { 
+//     background: linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+// }
+
 .checked-circle { 
-    background: linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+    background-image: url(../img/icon-check.svg), linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 @media (max-width: 530px) {

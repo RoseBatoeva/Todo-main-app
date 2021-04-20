@@ -18,11 +18,9 @@ class Todo {
         const todo = document.createElement('div');
         todo.className = 'todo';
         todo.innerHTML = `
-            <div class="emptyCircle">
-                <img src="img/icon-check.svg" alt="icon-check" class="check-button hidden">
-            </div>          
-                <div>${this.title}</div>
-                <img src="img/icon-cross.svg" alt="icon-cross" class="close-button hidden">
+            <div class="emptyCircle"></div>          
+            <div>${this.title}</div>
+            <img src="img/icon-cross.svg" alt="icon-cross" class="close-button hidden">
         `;
         
         return todo;
@@ -48,7 +46,7 @@ function addTodo() {
                 createTodo();
                 
                 //Counter   
-                counter = counter + 1
+                counter = counter + 1;
                 counterText.textContent = counter;
             } else {
                 alert('Please write a new todo');
@@ -83,16 +81,17 @@ function checkTodo() {
     listTodo.addEventListener('click', (e) => {
         if (e.target.classList.contains('emptyCircle')) {
             e.target.classList.toggle('checked-circle');
-            e.target.firstElementChild.classList.toggle('hidden');
             e.target.parentElement.classList.toggle('checked');
         }; 
-        //Counter
+        // Counter
         if (e.target.parentElement.classList.contains('checked')){
-            counter = counter - 1
+            counter = counter - 1;
             counterText.textContent = counter;
+            console.log('-1');
         } else if (e.target.parentElement.classList.contains('todo') && !e.target.parentElement.classList.contains('checked')) {
-            counter = counter + 1
+            counter = counter + 1;
             counterText.textContent = counter;
+            console.log('+1');
         }
     });
 }
@@ -103,12 +102,16 @@ checkTodo();
 
 function deleteTodo() {
     listTodo.addEventListener('click', (e) => {
-        if (e.target.classList.contains('close-button')) {
+        if (e.target.classList.contains('close-button') && !e.target.parentElement.classList.contains('checked')) {
             e.target.parentElement.remove();
+
+            console.log('deleted unchecked todo');
             
-            // Counter
-            counter = counter - 1
-            counterText.textContent = counter;
+            counterText.textContent = counter - 1;
+            
+        } else if (e.target.classList.contains('close-button') && e.target.parentElement.classList.contains('checked')) {
+            e.target.parentElement.remove();
+            console.log('deleted checked todo');
         }
     });
 }
@@ -150,6 +153,14 @@ function clearCompleted() {
         for (let i = 0; i < todos.length; i++) {
             if (todos[i].classList.contains('checked')) {
                 todos[i].remove();
+
+                let c = 0;
+                c++;
+                console.log(c);
+                
+                // Counter
+                // counter = counter - c;
+                // counterText.textContent = counter;
             }
         }
     });  
