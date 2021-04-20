@@ -101,7 +101,7 @@ const allItemsBtn = document.querySelector('#all-items'),
 let todos = listTodo.children;
 
 allItemsBtn.addEventListener('click', () => {
-    for (let i=0; i<todos.length; i++) {
+    for (let i = 0; i < todos.length; i++) {
         if (todos[i].classList.contains('todo')) {
             todos[i].style.display="flex";
         }
@@ -109,7 +109,7 @@ allItemsBtn.addEventListener('click', () => {
 });
 
 function filter(styleFirst,styleSecond) {
-    for (let i=0; i<todos.length; i++) {
+    for (let i = 0; i < todos.length; i++) {
         if (!todos[i].classList.contains('checked')) {
             todos[i].style.display = styleFirst;
         } else if (todos[i].classList.contains('checked')) {
@@ -126,4 +126,15 @@ completedItemsBtn.addEventListener('click', () => {
     filter('none', "flex");
 });
 
+//Button "clear completed"
+
+const clearCompletedBtn = document.querySelector('.todo-list__clear-completed');
+
+clearCompletedBtn.addEventListener('click', () => {
+    for (let i = 0; i < todos.length; i++) {
+        if (todos[i].classList.contains('checked')) {
+            todos[i].remove();
+        }
+    }
+});
 
