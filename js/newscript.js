@@ -44,8 +44,8 @@ function addTodo() {
         if (e.key == "Enter") {
             if (input.value !== '') {
                 createTodo();
-                
-                //Counter   
+
+                //Counter
                 counter = counter + 1;
                 counterText.textContent = counter;
             } else {
@@ -82,17 +82,16 @@ function checkTodo() {
         if (e.target.classList.contains('emptyCircle')) {
             e.target.classList.toggle('checked-circle');
             e.target.parentElement.classList.toggle('checked');
+
+                //Counter 
+                if (e.target.className == 'emptyCircle checked-circle') {
+                    counter = counter - 1;
+                    counterText.textContent = counter;
+                } else if (e.target.className == 'emptyCircle') {
+                    counter = counter + 1;
+                    counterText.textContent = counter;
+                }
         }; 
-        // Counter
-        if (e.target.parentElement.classList.contains('checked')){
-            counter = counter - 1;
-            counterText.textContent = counter;
-            console.log('-1');
-        } else if (e.target.parentElement.classList.contains('todo') && !e.target.parentElement.classList.contains('checked')) {
-            counter = counter + 1;
-            counterText.textContent = counter;
-            console.log('+1');
-        }
     });
 }
 
@@ -102,16 +101,14 @@ checkTodo();
 
 function deleteTodo() {
     listTodo.addEventListener('click', (e) => {
-        if (e.target.classList.contains('close-button') && !e.target.parentElement.classList.contains('checked')) {
+        if (e.target.classList.contains('close-button')) {
             e.target.parentElement.remove();
 
-            console.log('deleted unchecked todo');
-            
-            counterText.textContent = counter - 1;
-            
-        } else if (e.target.classList.contains('close-button') && e.target.parentElement.classList.contains('checked')) {
-            e.target.parentElement.remove();
-            console.log('deleted checked todo');
+            //Counter
+            if (e.target.parentElement.className == 'todo') {
+                counter = counter - 1;
+                counterText.textContent = counter; 
+            }
         }
     });
 }
@@ -153,23 +150,12 @@ function clearCompleted() {
         for (let i = 0; i < todos.length; i++) {
             if (todos[i].classList.contains('checked')) {
                 todos[i].remove();
-
-                let c = 0;
-                c++;
-                console.log(c);
-                
-                // Counter
-                // counter = counter - c;
-                // counterText.textContent = counter;
             }
         }
     });  
 }
 
 clearCompleted();
-
-
-
 
 
 
