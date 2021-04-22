@@ -157,6 +157,8 @@ function clearCompleted() {
 
 clearCompleted();
 
-
-
+toggleThemeBtn.onclick = () => {
+    document.body.classList.toggle('darkTheme');
+    toggleThemeBtn.firstElementChild.src = document.body.classList.contains('darkTheme') ? 'img/icon-sun.svg' : 'img/icon-moon.svg';
+};
 

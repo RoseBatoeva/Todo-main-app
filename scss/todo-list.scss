@@ -54,20 +54,21 @@
     &:hover {
         display: block;
     }
-
 }
 
 @media (max-width: 530px) {
-   
-    .todo-list__footer {
-        display: flex;
-        justify-content: center;
-        text-align: center;
+    .todo-list {
 
-        & .todo-list__items-counter, .todo-list__clear-completed{
-            display: none;
+        & .todo-list__footer {
+            display: flex;
+            justify-content: center;
+            text-align: center;
+    
+            & .todo-list__items-counter, .todo-list__clear-completed{
+                display: none;
+            }
         }
-    }
+    } 
 }
 
 

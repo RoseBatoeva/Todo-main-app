@@ -6,7 +6,6 @@ body {
     align-items: center;
     flex-direction: column;
     background: url(../img/bg-desktop-light.jpg) no-repeat top center;
-
 }
 
 footer {
@@ -46,14 +45,15 @@ footer {
 
 .checked-circle { 
     background-image: url(../img/icon-check.svg), linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%));
-    background: center no-repeat;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 @media (max-width: 530px) {
     body {
         background: url(../img/bg-mobile-light.jpg) 0 0/100% auto no-repeat;
     }
-    
+
     ._container {
         width: 365px;
     }
