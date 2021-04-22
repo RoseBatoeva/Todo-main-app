@@ -257,6 +257,7 @@ body.darkTheme .todo-list {
 }
 body.darkTheme .todo-list .todo {
   border-bottom: solid 1px #393a4c;
+  color: #9394a5;
 }
 body.darkTheme .todo-list .todo:hover {
   background-color: #161722;
