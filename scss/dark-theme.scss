@@ -8,8 +8,8 @@ body.darkTheme {
 
 body.darkTheme ._container {
     background-color: hsl(235, 24%, 19%);
+    box-shadow: 0px 0px 20px hsl(0, 0%, 3%);
 }
-
 
 @media (max-width: 530px) {
     body.darkTheme {
@@ -26,7 +26,6 @@ body.darkTheme #create-new-todo__input-text {
 }
 
 body.darkTheme .todo-list {
-    box-shadow: 0px 0px 20px hsl(0, 0%, 3%);
 
     & .todo {
         border-bottom: solid 1px hsl(237, 14%, 26%);

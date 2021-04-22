@@ -93,6 +93,7 @@ footer {
   width: 500px;
   background-color: #fff;
   border-radius: 5px;
+  box-shadow: 0px 0px 20px #bbbbbe;
 }
 
 .hidden {
@@ -151,6 +152,7 @@ header {
   margin-bottom: 20px;
   padding: 20px;
   color: #9394a5;
+  box-shadow: 0px 0px 20px #bbbbbe;
   height: 55px;
   display: flex;
   align-items: center;
@@ -169,7 +171,6 @@ header {
 }
 
 .todo-list {
-  box-shadow: 0px 0px 20px #bbbbbe;
   color: #484b6a;
 }
 .todo-list .todo-list__items {
@@ -237,6 +238,7 @@ body.darkTheme {
 
 body.darkTheme ._container {
   background-color: #25273c;
+  box-shadow: 0px 0px 20px #080808;
 }
 
 @media (max-width: 530px) {
@@ -252,9 +254,6 @@ body.darkTheme #create-new-todo__input-text {
   color: #9394a5;
 }
 
-body.darkTheme .todo-list {
-  box-shadow: 0px 0px 20px #080808;
-}
 body.darkTheme .todo-list .todo {
   border-bottom: solid 1px #393a4c;
   color: #9394a5;
