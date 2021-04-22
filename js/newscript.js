@@ -157,7 +157,7 @@ function clearCompleted() {
 
 clearCompleted();
 
-//Toggle drak mode
+//Toggle dark mode
 
 if(!localStorage.theme) localStorage.theme ='lightMode'
 document.body.className = localStorage.theme;
