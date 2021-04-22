@@ -157,8 +157,16 @@ function clearCompleted() {
 
 clearCompleted();
 
+//Toggle drak mode
+
+if(!localStorage.theme) localStorage.theme ='lightMode'
+document.body.className = localStorage.theme;
+toggleThemeBtn.firstElementChild.src = document.body.classList.contains('darkTheme') ? 'img/icon-sun.svg' : 'img/icon-moon.svg';
+
 toggleThemeBtn.onclick = () => {
     document.body.classList.toggle('darkTheme');
     toggleThemeBtn.firstElementChild.src = document.body.classList.contains('darkTheme') ? 'img/icon-sun.svg' : 'img/icon-moon.svg';
+
+    localStorage.theme = document.body.className || 'lightMode';
 };
 
