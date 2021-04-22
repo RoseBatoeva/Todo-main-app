@@ -96,8 +96,7 @@ footer {
 }
 
 .hidden {
-  visibility: hidden;
-  transition: ease-in-out 300ms;
+  display: none;
 }
 
 .emptyCircle {
@@ -109,6 +108,7 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex: 0 0 auto;
 }
 
 .checked {
@@ -117,7 +117,9 @@ footer {
 }
 
 .checked-circle {
-  background: linear-gradient(#57ddff, #c058f3);
+  background-image: url(../img/icon-check.svg), linear-gradient(#57ddff, #c058f3);
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 @media (max-width: 530px) {
@@ -179,6 +181,7 @@ header {
   height: 55px;
   padding: 0 20px;
   display: flex;
+  justify-content: flex-start;
   align-items: center;
   cursor: pointer;
 }
@@ -207,16 +210,58 @@ header {
 }
 
 .close-button {
+  padding: 10px;
   order: 999;
   margin-left: auto;
 }
+.close-button:hover {
+  display: block;
+}
 
 @media (max-width: 530px) {
-  .todo-list__footer {
+  .todo-list .todo-list__footer {
     display: flex;
     justify-content: center;
+    text-align: center;
   }
-  .todo-list__footer .todo-list__items-counter, .todo-list__footer .todo-list__clear-completed {
+  .todo-list .todo-list__footer .todo-list__items-counter, .todo-list .todo-list__footer .todo-list__clear-completed {
     display: none;
   }
+}
+body.darkTheme {
+  background-color: #161722;
+  background-image: url(../img/bg-desktop-dark.jpg);
+  background-repeat: no-repeat;
+  background-position: top center;
+}
+
+body.darkTheme ._container {
+  background-color: #25273c;
+}
+
+@media (max-width: 530px) {
+  body.darkTheme {
+    background-color: #161722;
+    background-image: url(../img/bg-mobile-dark.jpg);
+    background-repeat: no-repeat;
+    background-position: 0 0/100% auto;
+  }
+}
+body.darkTheme #create-new-todo__input-text {
+  background-color: #25273c;
+  color: #9394a5;
+}
+
+body.darkTheme .todo-list {
+  box-shadow: 0px 0px 20px #080808;
+}
+body.darkTheme .todo-list .todo {
+  border-bottom: solid 1px #393a4c;
+  color: #9394a5;
+}
+body.darkTheme .todo-list .todo:hover {
+  background-color: #161722;
+}
+body.darkTheme .todo-list #all-items:hover, body.darkTheme .todo-list #active-items:hover, body.darkTheme .todo-list #completed-items:hover, body.darkTheme .todo-list .todo-list__clear-completed:hover {
+  color: #3a7bfd;
 }

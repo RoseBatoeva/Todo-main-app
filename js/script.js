@@ -1,75 +1,76 @@
-'use strict';
+// 'use strict';
 
 const input = document.querySelector('input'),
       btnAllItems = document.querySelector('#all-items'),
       btnActiveItems = document.querySelector('#active-items'),
       btnCompletedItems = document.querySelector('#completed-items');
 
-function addNewTodo() {
+// function addNewTodo() {
 
-    input.addEventListener('keydown', (e) => {
+//     input.addEventListener('keydown', (e) => {
 
-        let todo = document.createElement('div');
-        todo.className = 'todo';
-        todo.innerHTML = `${input.value}`;
+//         let todo = document.createElement('div');
+//         todo.className = 'todo';
+//         todo.innerHTML = `${input.value}`;
         
-        let circle = document.createElement('div');
-        circle.className = 'emptyCircle';
-        todo.prepend(circle);
+//         let circle = document.createElement('div');
+//         circle.className = 'emptyCircle';
+//         todo.prepend(circle);
     
-        let iconCheck = document.createElement('img');
-        iconCheck.src = "img/icon-check.svg";
-        iconCheck.alt = "icon-check";
-        iconCheck.className = 'icon-check hidden';
-        circle.append(iconCheck);
+//         let iconCheck = document.createElement('img');
+//         iconCheck.src = "img/icon-check.svg";
+//         iconCheck.alt = "icon-check";
+//         iconCheck.className = 'icon-check hidden';
+//         circle.append(iconCheck);
     
-        let img = document.createElement('img');
-        img.src = "img/icon-cross.svg";
-        img.alt = 'icon-cross';
-        img.className = 'close-button hidden';
-        todo.append(img);
+//         let img = document.createElement('img');
+//         img.src = "img/icon-cross.svg";
+//         img.alt = 'icon-cross';
+//         img.className = 'close-button hidden';
+//         todo.append(img);
 
-        if (e.key === "Enter") {
-            if (input.value == '') {
-                alert('Create a new todo (:');
-            } else {
-                document.querySelector('.todo-list__items').append(todo);
-                input.value = '';
-            }
-        }
+//         if (e.key === "Enter") {
+//             if (input.value == '') {
+//                 alert('Create a new todo (:');
+//             } else {
+//                 document.querySelector('.todo-list__items').append(todo);
+//                 input.value = '';
+//             }
+//         }
 
-        todo.addEventListener('mouseover', ()=> {
-            img.classList.remove('hidden');
-        });
+//         todo.addEventListener('mouseover', ()=> {
+//             img.classList.remove('hidden');
+//         });
     
-        todo.addEventListener('mouseout', ()=> {
-            img.classList.add('hidden');
-        });
+//         todo.addEventListener('mouseout', ()=> {
+//             img.classList.add('hidden');
+//         });
     
-        img.addEventListener('click', (e) => {
-            e.target.parentElement.remove();
-        });
+//         img.addEventListener('click', (e) => {
+//             e.target.parentElement.remove();
+//         });
 
-        circle.addEventListener('click', () =>{
-            todo.classList.toggle('checked');
-            circle.classList.toggle('checked-circle');
-            iconCheck.classList.toggle('hidden');
-        });
+        // circle.addEventListener('click', () =>{
+        //     todo.classList.toggle('checked');
+        //     circle.classList.toggle('checked-circle');
+        //     iconCheck.classList.toggle('hidden');
+        // });
 
-        btnActiveItems.addEventListener('click', () => {
-            if (!todo.classList.contains('checked')) {
+//         btnActiveItems.addEventListener('click', () => {
+//             if (!todo.classList.contains('checked')) {
                 
-            }
+//             }
 
 
-        });
+//         });
 
-    });
-}
+//     });
+// }
 
-addNewTodo();
+// addNewTodo();
 
-///////////////////////////////
+
+
 class Todo {
     constructor (title) {
         this.title = title;
@@ -100,7 +101,19 @@ let todoArray = [];
 todoArray.push(newTodo1);
 todoArray.push(newTodo2);
 
+function addNewTodo() {
 
+    input.addEventListener('keydown', (e) => {
+
+        if (e.key === "Enter") {
+            if (input.value == '') {
+                alert('Create a new todo (:');
+            } else {
+                document.querySelector('.todo-list__items').append(todo);
+                    input.value = '';
+            }
+    }
+});
 
 
 

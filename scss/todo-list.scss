@@ -4,7 +4,6 @@
 
     & .todo-list__items {
         height: 330px;
-        // max-height: 330px;
         overflow: auto;
 
         & .todo {
@@ -12,6 +11,7 @@
             height: 55px;
             padding: 0 20px;
             display: flex;
+            justify-content: flex-start;
             align-items: center;
             cursor: pointer;
 
@@ -47,19 +47,29 @@
 }
 
 .close-button {
+    padding: 10px;
     order: 999;
     margin-left: auto;
+
+    &:hover {
+        display: block;
+    }
 }
 
 @media (max-width: 530px) {
-   
-    .todo-list__footer {
-        display: flex;
-        justify-content: center;
+    .todo-list {
 
-        & .todo-list__items-counter, .todo-list__clear-completed{
-            display: none;
+        & .todo-list__footer {
+            display: flex;
+            justify-content: center;
+            text-align: center;
+    
+            & .todo-list__items-counter, .todo-list__clear-completed{
+                display: none;
+            }
         }
-    }
+    } 
 }
+
+
 
