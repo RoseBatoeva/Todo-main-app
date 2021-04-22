@@ -1,0 +1,44 @@
+
+body.darkTheme {
+    background-color: hsl(235, 21%, 11%);
+    background-image: url(../img/bg-desktop-dark.jpg);
+    background-repeat: no-repeat;
+    background-position: top center;
+}
+
+body.darkTheme ._container {
+    background-color: hsl(235, 24%, 19%);
+}
+
+
+@media (max-width: 530px) {
+    body.darkTheme {
+        background-color: hsl(235, 21%, 11%);
+        background-image: url(../img/bg-mobile-dark.jpg);
+        background-repeat: no-repeat;
+        background-position: 0 0/100% auto;
+    }
+}
+
+body.darkTheme #create-new-todo__input-text {
+    background-color: hsl(235, 24%, 19%);
+    color: hsl(236, 9%, 61%);
+}
+
+body.darkTheme .todo-list {
+    box-shadow: 0px 0px 20px hsl(0, 0%, 3%);
+
+    & .todo {
+        border-bottom: solid 1px hsl(237, 14%, 26%);
+        color: hsl(236, 9%, 61%);
+    
+        &:hover {
+            background-color: hsl(235, 21%, 11%);
+        }
+    }
+
+    & #all-items:hover, #active-items:hover, #completed-items:hover, .todo-list__clear-completed:hover {
+        color: hsl(220, 98%, 61%);
+    }
+}
+    

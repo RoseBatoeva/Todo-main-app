@@ -6,7 +6,6 @@ body {
     align-items: center;
     flex-direction: column;
     background: url(../img/bg-desktop-light.jpg) no-repeat top center;
-
 }
 
 footer {
@@ -24,8 +23,7 @@ footer {
 }
 
 .hidden {
-    visibility: hidden;
-    transition: ease-in-out 300ms;
+    display: none;
 }
 
 .emptyCircle {
@@ -37,6 +35,7 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex: 0 0 auto;
 }
 
 .checked {
@@ -45,14 +44,16 @@ footer {
 }
 
 .checked-circle { 
-    background: linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+    background-image: url(../img/icon-check.svg), linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 @media (max-width: 530px) {
     body {
         background: url(../img/bg-mobile-light.jpg) 0 0/100% auto no-repeat;
     }
-    
+
     ._container {
         width: 365px;
     }
