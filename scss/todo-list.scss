@@ -18,6 +18,10 @@
                 background-color:  hsl(240, 23%, 95%);
                 border-radius: 5px;
             }
+
+            & .todo-text {
+                width: 350px;
+            }
         }
     }
 
@@ -62,8 +66,14 @@
 @media (max-width: 530px) {
     .todo-list {
 
-        & .todo-text {
-            width: 240px;
+        & .todo-list__items {
+
+            & .todo {
+                
+                & .todo-text {
+                    width: 240px;
+                }
+            }
         }
 
         & .todo-list__footer {

@@ -181,6 +181,9 @@ header {
   background-color: #efeff5;
   border-radius: 5px;
 }
+.todo-list .todo-list__items .todo .todo-text {
+  width: 350px;
+}
 .todo-list .todo-list__footer {
   display: flex;
   justify-content: space-between;
@@ -214,7 +217,7 @@ header {
 }
 
 @media (max-width: 530px) {
-  .todo-list .todo-text {
+  .todo-list .todo-list__items .todo .todo-text {
     width: 240px;
   }
   .todo-list .todo-list__footer {
