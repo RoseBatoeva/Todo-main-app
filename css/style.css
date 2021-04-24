@@ -158,7 +158,7 @@ header {
   align-items: center;
 }
 .create-new-todo #create-new-todo__input-text {
-  width: 300px;
+  width: 350px;
 }
 
 .todo-list {
@@ -214,6 +214,9 @@ header {
 }
 
 @media (max-width: 530px) {
+  .todo-list .todo-text {
+    width: 240px;
+  }
   .todo-list .todo-list__footer {
     display: flex;
     justify-content: center;

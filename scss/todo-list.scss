@@ -62,6 +62,10 @@
 @media (max-width: 530px) {
     .todo-list {
 
+        & .todo-text {
+            width: 240px;
+        }
+
         & .todo-list__footer {
             display: flex;
             justify-content: center;

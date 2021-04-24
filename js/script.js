@@ -19,7 +19,7 @@ class Todo {
         todo.className = 'todo';
         todo.innerHTML = `
             <div class="emptyCircle"></div>          
-            <div>${this.title}</div>
+            <div class = 'todo-text'>${this.title}</div>
             <img src="img/icon-cross.svg" alt="icon-cross" class="close-button hidden">
         `;
         
