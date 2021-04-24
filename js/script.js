@@ -194,6 +194,7 @@ function dragAndDrop() {
             e.target.classList.remove(`elected`);
         })
     }
+
     // 3.Implementing the drag and drop logic
 }
 
