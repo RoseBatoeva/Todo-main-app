@@ -1,6 +1,6 @@
 .create-new-todo {
     margin-bottom: 20px;
-    padding: 20px;
+    padding: 20px 20px 20px 60px;
     color: hsl(236, 9%, 61%);
     box-shadow: 0px 0px 20px hsl(240, 2%, 74%);
     height: 55px;
@@ -8,17 +8,17 @@
     align-items:center;
 
     & #create-new-todo__input-text{
-        width: 350px; 
+        width: 300px; 
     }
 
-    &::before {
-        content: '';
-        width: 20px;
-        height: 20px;
-        margin-right: 20px;
-        border: solid 1px hsl(236, 9%, 61%) ;
-        border-radius: 50%;
-        flex: 0 0 auto;
-    }
+    // &::before {
+    //     content: '';
+    //     width: 20px;
+    //     height: 20px;
+    //     margin-right: 20px;
+    //     border: solid 1px hsl(236, 9%, 61%) ;
+    //     border-radius: 50%;
+    //     flex: 0 0 auto;
+    // }
 }
 
