@@ -45,6 +45,9 @@ function addTodo() {
             if (input.value !== '') {
                 createTodo();
 
+                //Drag and drop
+                dragAndDrop();
+
                 //Counter
                 counter = counter + 1;
                 counterText.textContent = counter;
@@ -169,4 +172,29 @@ toggleThemeBtn.onclick = () => {
 
     localStorage.theme = document.body.className || 'lightMode';
 };
+
+//Drag and drop
+
+function dragAndDrop() {
+
+    //1. Let's allow dragging of elements
+    for (let i = 0; i < todos.length; i++) {
+        todos[i].draggable = true;
+    }
+    
+    // 2. Adding an event to the starting and end of the drag
+    for (let i = 0; i < todos.length; i++) {
+        todos[i].addEventListener(`dragstart`, (e) => {
+            e.target.classList.add(`selected`);
+        })
+    }
+    
+    for (let i = 0; i < todos.length; i++) {
+        todos[i].addEventListener(`dragend`, (e) => {
+            e.target.classList.remove(`elected`);
+        })
+    }
+
+    // 3.Implementing the drag and drop logic
+}
 

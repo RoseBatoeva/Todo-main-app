@@ -142,6 +142,9 @@ header {
   color: #fafafa;
   letter-spacing: 10px;
 }
+header #toggleThemeBtn {
+  cursor: pointer;
+}
 
 @media (max-width: 530px) {
   header {
