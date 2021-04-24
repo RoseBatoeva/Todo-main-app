@@ -1,4 +1,4 @@
-.create-new-todo {
+.todo-list__add-item {
     margin-bottom: 20px;
     padding: 20px 20px 20px 60px;
     color: hsl(236, 9%, 61%);
@@ -7,7 +7,7 @@
     display: flex;
     align-items:center;
 
-    & #create-new-todo__input-text{
+    & .todo-list__title{
         width: 350px; 
     }
 }

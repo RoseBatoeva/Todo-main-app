@@ -9,11 +9,9 @@ header {
     color: hsl(0, 0%, 98%);
     letter-spacing: 10px;
 
-    & #toggleThemeBtn {
+    & .header__btn-theme {
         cursor: pointer;
     }
-    
-
 }
 
 @media (max-width:530px) {
@@ -21,5 +19,5 @@ header {
     header {
         width: 365px;
     }
-
+    
 }

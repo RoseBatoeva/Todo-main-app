@@ -1,11 +1,11 @@
-.todo-list {
+.todo-list__items-list {
     color: hsl(235, 19%, 35%);
 
     & .todo-list__items {
         height: 330px;
         overflow: auto;
 
-        & .todo {
+        & .todo-list__todo {
             border-bottom: solid 1px hsl(236, 33%, 92%);
             height: 55px;
             padding: 0 20px;
@@ -19,8 +19,18 @@
                 border-radius: 5px;
             }
 
-            & .todo-text {
+            & .todo-list__todo-content {
                 width: 350px;
+            }
+
+            & .todo-list__todo-delete-btn{
+                padding: 10px;
+                order: 999;
+                margin-left: auto;
+            
+                &:hover {
+                    display: block;
+                }
             }
         }
     }
@@ -36,41 +46,29 @@
         & .todo-list__filter{
             display: flex;
             flex-direction: row nowrap;
-            cursor: pointer;
-        }
+            justify-content: center;
+        }  
 
-        & #all-items, #active-items, #completed-items, .todo-list__clear-completed {
+        & .todo-list__filter-items {
             margin: 0 4px;
+            cursor: pointer;
 
             &:hover {
                 color: hsl(220, 98%, 61%);  
             }
         }
-    
-        & .todo-list__clear-completed {
-            cursor: pointer;
-        }
     }
 }
 
-.close-button {
-    padding: 10px;
-    order: 999;
-    margin-left: auto;
-
-    &:hover {
-        display: block;
-    }
-}
 
 @media (max-width: 530px) {
-    .todo-list {
+    .todo-list__items-list {
 
         & .todo-list__items {
 
-            & .todo {
+            & .todo-list__todo {
                 
-                & .todo-text {
+                & .todo-list__todo-content {
                     width: 240px;
                 }
             }
@@ -81,7 +79,7 @@
             justify-content: center;
             text-align: center;
     
-            & .todo-list__items-counter, .todo-list__clear-completed{
+            & .todo-list__counter, .todo-list__filter--clear-completed{
                 display: none;
             }
         }

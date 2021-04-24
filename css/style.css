@@ -142,7 +142,7 @@ header {
   color: #fafafa;
   letter-spacing: 10px;
 }
-header #toggleThemeBtn {
+header .header__btn-theme {
   cursor: pointer;
 }
 
@@ -151,7 +151,7 @@ header #toggleThemeBtn {
     width: 365px;
   }
 }
-.create-new-todo {
+.todo-list__add-item {
   margin-bottom: 20px;
   padding: 20px 20px 20px 60px;
   color: #9394a5;
@@ -160,18 +160,18 @@ header #toggleThemeBtn {
   display: flex;
   align-items: center;
 }
-.create-new-todo #create-new-todo__input-text {
+.todo-list__add-item .todo-list__title {
   width: 350px;
 }
 
-.todo-list {
+.todo-list__items-list {
   color: #484b6a;
 }
-.todo-list .todo-list__items {
+.todo-list__items-list .todo-list__items {
   height: 330px;
   overflow: auto;
 }
-.todo-list .todo-list__items .todo {
+.todo-list__items-list .todo-list__items .todo-list__todo {
   border-bottom: solid 1px #e4e5f1;
   height: 55px;
   padding: 0 20px;
@@ -180,14 +180,22 @@ header #toggleThemeBtn {
   align-items: center;
   cursor: pointer;
 }
-.todo-list .todo-list__items .todo:hover {
+.todo-list__items-list .todo-list__items .todo-list__todo:hover {
   background-color: #efeff5;
   border-radius: 5px;
 }
-.todo-list .todo-list__items .todo .todo-text {
+.todo-list__items-list .todo-list__items .todo-list__todo .todo-list__todo-content {
   width: 350px;
 }
-.todo-list .todo-list__footer {
+.todo-list__items-list .todo-list__items .todo-list__todo .todo-list__todo-delete-btn {
+  padding: 10px;
+  order: 999;
+  margin-left: auto;
+}
+.todo-list__items-list .todo-list__items .todo-list__todo .todo-list__todo-delete-btn:hover {
+  display: block;
+}
+.todo-list__items-list .todo-list__footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -195,40 +203,29 @@ header #toggleThemeBtn {
   padding: 20px;
   color: #9394a5;
 }
-.todo-list .todo-list__footer .todo-list__filter {
+.todo-list__items-list .todo-list__footer .todo-list__filter {
   display: flex;
   flex-direction: row nowrap;
-  cursor: pointer;
+  justify-content: center;
 }
-.todo-list .todo-list__footer #all-items, .todo-list .todo-list__footer #active-items, .todo-list .todo-list__footer #completed-items, .todo-list .todo-list__footer .todo-list__clear-completed {
+.todo-list__items-list .todo-list__footer .todo-list__filter-items {
   margin: 0 4px;
-}
-.todo-list .todo-list__footer #all-items:hover, .todo-list .todo-list__footer #active-items:hover, .todo-list .todo-list__footer #completed-items:hover, .todo-list .todo-list__footer .todo-list__clear-completed:hover {
-  color: #3a7bfd;
-}
-.todo-list .todo-list__footer .todo-list__clear-completed {
   cursor: pointer;
 }
-
-.close-button {
-  padding: 10px;
-  order: 999;
-  margin-left: auto;
-}
-.close-button:hover {
-  display: block;
+.todo-list__items-list .todo-list__footer .todo-list__filter-items:hover {
+  color: #3a7bfd;
 }
 
 @media (max-width: 530px) {
-  .todo-list .todo-list__items .todo .todo-text {
+  .todo-list__items-list .todo-list__items .todo-list__todo .todo-list__todo-content {
     width: 240px;
   }
-  .todo-list .todo-list__footer {
+  .todo-list__items-list .todo-list__footer {
     display: flex;
     justify-content: center;
     text-align: center;
   }
-  .todo-list .todo-list__footer .todo-list__items-counter, .todo-list .todo-list__footer .todo-list__clear-completed {
+  .todo-list__items-list .todo-list__footer .todo-list__counter, .todo-list__items-list .todo-list__footer .todo-list__filter--clear-completed {
     display: none;
   }
 }
@@ -244,6 +241,19 @@ body.darkTheme ._container {
   box-shadow: 0px 0px 20px #080808;
 }
 
+body.darkTheme .todo-list__title {
+  background-color: #25273c;
+  color: #9394a5;
+}
+
+body.darkTheme .todo-list__items-list .todo-list__todo {
+  border-bottom: solid 1px #393a4c;
+  color: #9394a5;
+}
+body.darkTheme .todo-list__items-list .todo-list__todo:hover {
+  background-color: #161722;
+}
+
 @media (max-width: 530px) {
   body.darkTheme {
     background-color: #161722;
@@ -251,19 +261,4 @@ body.darkTheme ._container {
     background-repeat: no-repeat;
     background-position: 0 0/100% auto;
   }
-}
-body.darkTheme #create-new-todo__input-text {
-  background-color: #25273c;
-  color: #9394a5;
-}
-
-body.darkTheme .todo-list .todo {
-  border-bottom: solid 1px #393a4c;
-  color: #9394a5;
-}
-body.darkTheme .todo-list .todo:hover {
-  background-color: #161722;
-}
-body.darkTheme .todo-list #all-items:hover, body.darkTheme .todo-list #active-items:hover, body.darkTheme .todo-list #completed-items:hover, body.darkTheme .todo-list .todo-list__clear-completed:hover {
-  color: #3a7bfd;
 }

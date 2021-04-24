@@ -12,12 +12,37 @@
 
     <header class="header">
         <h1>TODO</h1>
-        <div id="toggleThemeBtn" >
+        <div class="header__btn-theme">
             <img src="img/icon-moon.svg" alt="icon">
         </div>
     </header>
 
     <main>
+        <div class="todo-list">
+            <div class="todo-list__add-item _container">
+                <input placeholder="Create a new todo" maxlength="100" type="text" name="create-todo" class="todo-list__title">
+             </div>
+             <div class="todo-list__items-list _container">
+                 <div class="todo-list__items"></div>
+                 <div class="todo-list__footer">
+                    <div class="todo-list__counter">
+                         <p><span class="counter">0</span> items left</p>
+                    </div>
+                    <div class="todo-list__filter">
+                         <p class="todo-list__filter-items todo-list__filter--all">All</p>
+                         <p class="todo-list__filter-items todo-list__filter--active">Active</p>
+                         <p class="todo-list__filter-items todo-list__filter--completed">Completed</p>
+                    </div>
+                    <p class="todo-list__filter-items todo-list__filter--clear-completed">Clear completed</p>
+                 </div>
+             </div>
+        </div>
+        
+
+        <footer>Drag and drop to reorder list</footer>
+    </main>
+
+    <!-- <main>
         <section class="create-new-todo _container">
            <input placeholder="Create a new todo" maxlength="100" type="text" name="create-todo" id="create-new-todo__input-text">
         </section>
@@ -40,9 +65,9 @@
         </section>
 
         <footer>Drag and drop to reorder list</footer>
-    </main>
+    </main> -->
 
-    <script src="js/script.js"></script>   
+    <script src="js/newscript.js"></script>   
     
 </body>
 
