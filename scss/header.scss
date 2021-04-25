@@ -8,10 +8,10 @@
     font-size: 3rem;
     color: hsl(0, 0%, 98%);
     letter-spacing: 10px;
+}
 
-    & .btn-toggle-theme {
-        cursor: pointer;
-    }
+.btn-toggle-theme {
+    cursor: pointer;
 }
 
 @media (max-width:530px) {
