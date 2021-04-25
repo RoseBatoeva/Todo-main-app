@@ -6,7 +6,7 @@ body.darkTheme {
     background-position: top center;
 }
 
-body.darkTheme ._container {
+body.darkTheme .container {
     background-color: hsl(235, 24%, 19%);
     box-shadow: 0px 0px 20px hsl(0, 0%, 3%);
 }
@@ -16,7 +16,7 @@ body.darkTheme .todo-list__title {
     color: hsl(236, 9%, 61%);
 }
 
-body.darkTheme .todo-list__items-list {
+body.darkTheme .todo-list__items-wrapper {
 
     & .todo-list__todo {
         border-bottom: solid 1px hsl(237, 14%, 26%);

@@ -4,7 +4,7 @@ const itemTitle = document.querySelector('.todo-list__title'),
       btnFilterActive = document.querySelector('.todo-list__filter--active'), 
       btnFilterCompleted = document.querySelector('.todo-list__filter--completed'),
       btnClearCompleted = document.querySelector('.todo-list__filter--clear-completed'),
-      btnToggleTheme = document.querySelector('.header__btn-theme'),
+      btnToggleTheme = document.querySelector('.btn-toggle-theme'),
       counterContent = document.querySelector('.counter');
 
 let todos = listOfItems.children;

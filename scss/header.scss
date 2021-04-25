@@ -1,4 +1,4 @@
-header {
+.app-header {
     width: 500px;
     margin: 100px 0px 30px;
     display: flex;
@@ -9,14 +9,14 @@ header {
     color: hsl(0, 0%, 98%);
     letter-spacing: 10px;
 
-    & .header__btn-theme {
+    & .btn-toggle-theme {
         cursor: pointer;
     }
 }
 
 @media (max-width:530px) {
     
-    header {
+    .app-header {
         width: 365px;
     }
     
