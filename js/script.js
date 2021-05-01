@@ -26,12 +26,15 @@ class TodoListItem {
         this.title.addEventListener('keydown', (e) => {
             if(e.key === 'Enter') {
                 let newItem = document.createElement('div');
-                newItem.className = 'todo-list__todo ';
+                newItem.className = 'todo-list__todo';
                 newItem.innerHTML = `
                     <div class="emptyCircle"></div>          
                     <div class = 'todo-list__todo-content'>${this.title.value}</div>
                     <img src="img/icon-cross.svg" alt="icon-cross" class="todo-list__todo-delete-btn hidden">
                 `;
+
+                //Drag and drop
+                newItem.draggable = true;
 
                 if (this.title.value !== '') {
                     this.listOfItems.append(newItem);
@@ -131,6 +134,46 @@ class TodoListItem {
             localStorage.theme = document.body.className || 'lightMode';
         };
     }
+
+    dragAndDrop() {
+        //Adding an event to the beginning and end of the drag
+        this.listOfItems.addEventListener(`dragstart`, (e) => {
+            e.target.classList.add(`selected`);
+        });
+          
+        this.listOfItems.addEventListener(`dragend`, (e) => {
+            e.target.classList.remove(`selected`);
+        });
+
+        //Implementing the drag and drop logic
+        this.listOfItems.addEventListener(`dragover`, (evt) => {
+            // Разрешаем сбрасывать элементы в эту область
+            evt.preventDefault();
+          
+            // Находим перемещаемый элемент
+            const activeElement = this.listOfItems.querySelector(`.selected`);
+            // Находим элемент, над которым в данный момент находится курсор
+            const currentElement = evt.target;
+            // Проверяем, что событие сработало:
+            // 1. не на том элементе, который мы перемещаем,
+            // 2. именно на элементе списка
+            const isMoveable = activeElement !== currentElement &&
+              currentElement.classList.contains(`todo-list__todo`);
+          
+            // Если нет, прерываем выполнение функции
+            if (!isMoveable) {
+              return;
+            }
+          
+            // Находим элемент, перед которым будем вставлять
+            const nextElement = (currentElement === activeElement.nextElementSibling) ?
+                currentElement.nextElementSibling :
+                currentElement;
+          
+            // Вставляем activeElement перед nextElement
+            this.listOfItems.insertBefore(activeElement, nextElement);
+          });
+    }
 }
 
 const itemTitle = document.querySelector('.todo-list__title');
@@ -141,6 +184,7 @@ todo.checkmarkTodo();
 todo.deleteTodo();
 todo.filterItems();
 todo.toggleDarkMode();
+todo.dragAndDrop();
 
 
 

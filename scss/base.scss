@@ -50,6 +50,10 @@ footer {
     background-repeat: no-repeat;
 }
 
+.selected {
+    opacity: 0.6;
+}
+
 @media (max-width: 530px) {
     body {
         background: url(../img/bg-mobile-light.jpg) 0 0/100% auto no-repeat;
