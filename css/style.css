@@ -74,18 +74,18 @@ h1, h2, h3, h4, h5, h6 {
 
 /*--------------------*/
 body {
-  font-family: "Josefin Sans", sans-serif;
   display: flex;
   align-items: center;
   flex-direction: column;
   background: url(../img/bg-desktop-light.jpg) no-repeat top center;
+  font-family: "Josefin Sans", sans-serif;
 }
 
 footer {
-  height: 100px;
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 100px;
   color: #9394a5;
 }
 
@@ -101,15 +101,15 @@ footer {
 }
 
 .emptyCircle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 0 0 auto;
   width: 20px;
   height: 20px;
   margin-right: 20px;
   border: solid 1px #9394a5;
   border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex: 0 0 auto;
 }
 
 .checked {
@@ -137,10 +137,10 @@ footer {
   }
 }
 .app-header {
-  width: 500px;
-  margin: 100px 0px 30px;
   display: flex;
   justify-content: space-between;
+  width: 500px;
+  margin: 100px 0px 30px;
   font-weight: 700;
   font-size: 3rem;
   color: #fafafa;
@@ -157,13 +157,13 @@ footer {
   }
 }
 .todo-list__add-item {
+  display: flex;
+  align-items: center;
+  height: 55px;
   margin-bottom: 20px;
   padding: 20px 20px 20px 60px;
   color: #9394a5;
   box-shadow: 0px 0px 20px #bbbbbe;
-  height: 55px;
-  display: flex;
-  align-items: center;
 }
 .todo-list__title {
   width: 350px;
@@ -177,12 +177,12 @@ footer {
   overflow: auto;
 }
 .todo-list__todo {
-  border-bottom: solid 1px #e4e5f1;
-  height: 55px;
-  padding: 0 20px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  height: 55px;
+  padding: 0 20px;
+  border-bottom: solid 1px #e4e5f1;
   cursor: pointer;
 }
 .todo-list__todo:hover {
