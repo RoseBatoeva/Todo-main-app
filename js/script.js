@@ -146,14 +146,14 @@ class TodoListItem {
         });
 
         //Implementing the drag and drop logic
-        this.listOfItems.addEventListener(`dragover`, (evt) => {
+        this.listOfItems.addEventListener(`dragover`, (e) => {
             // Разрешаем сбрасывать элементы в эту область
-            evt.preventDefault();
+            e.preventDefault();
           
             // Находим перемещаемый элемент
             const activeElement = this.listOfItems.querySelector(`.selected`);
             // Находим элемент, над которым в данный момент находится курсор
-            const currentElement = evt.target;
+            const currentElement = e.target;
             // Проверяем, что событие сработало:
             // 1. не на том элементе, который мы перемещаем,
             // 2. именно на элементе списка
