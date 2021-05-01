@@ -1,20 +1,17 @@
-const itemTitle = document.querySelector('.todo-list__title'),
-      listOfItems = document.querySelector('.todo-list__items');
-let todos = listOfItems.children;
-
-function filter(styleFirst,styleSecond) {
-    for (let i = 0; i < todos.length; i++) {
-        if (!todos[i].classList.contains('checked')) {
-            todos[i].style.display = styleFirst;
-        } else if (todos[i].classList.contains('checked')) {
-            todos[i].style.display = styleSecond;
+function filter(styleFirst,styleSecond,arr) {
+    for (let i = 0; i < arr.length; i++) {
+        if (!arr[i].classList.contains('checked')) {
+            arr[i].style.display = styleFirst;
+        } else if (arr[i].classList.contains('checked')) {
+            arr[i].style.display = styleSecond;
         }
     }
 }
 
 class TodoListItem {
     constructor (title) {
-        this.title = title;
+        this.title = title; 
+        this.listOfItems = document.querySelector('.todo-list__items');
         this.btnFilterAllItems = document.querySelector('.todo-list__filter--all');
         this.btnFilterActive = document.querySelector('.todo-list__filter--active'); 
         this.btnFilterCompleted = document.querySelector('.todo-list__filter--completed');
@@ -22,6 +19,7 @@ class TodoListItem {
         this.btnToggleTheme = document.querySelector('.btn-toggle-theme');
         this.counterContent = document.querySelector('.counter');
         this.counter = 0;
+        this.todos = this.listOfItems.children;
     }
 
     render() {       
@@ -36,7 +34,7 @@ class TodoListItem {
                 `;
 
                 if (this.title.value !== '') {
-                    listOfItems.append(newItem);
+                    this.listOfItems.append(newItem);
                     this.title.value = '';
 
                     //Counter
@@ -50,13 +48,13 @@ class TodoListItem {
     }
 
     toggleCloseButton() {
-        listOfItems.addEventListener('mouseover', (e) => {
+        this.listOfItems.addEventListener('mouseover', (e) => {
             if(e.target.classList.contains('todo-list__todo')) {
                 e.target.lastElementChild.classList.remove('hidden');
             }
         });
     
-        listOfItems.addEventListener('mouseout', (e) => {
+        this.listOfItems.addEventListener('mouseout', (e) => {
             if(e.target.classList.contains('todo-list__todo')) {
                 e.target.lastElementChild.classList.add('hidden');
             }
@@ -64,7 +62,7 @@ class TodoListItem {
     }
 
     checkmarkTodo() {
-        listOfItems.addEventListener('click', (e) => {
+        this.listOfItems.addEventListener('click', (e) => {
             if (e.target.classList.contains('emptyCircle')) {
                 e.target.classList.toggle('checked-circle');
                 e.target.parentElement.classList.toggle('checked');
@@ -82,7 +80,7 @@ class TodoListItem {
     }
 
     deleteTodo() {
-        listOfItems.addEventListener('click', (e) => {
+        this.listOfItems.addEventListener('click', (e) => {
             if (e.target.classList.contains('todo-list__todo-delete-btn')) {
                 e.target.parentElement.remove();
     
@@ -97,25 +95,25 @@ class TodoListItem {
 
     filterItems() {
         this.btnFilterAllItems.addEventListener('click', () => {
-            for (let i = 0; i < todos.length; i++) {
-                if (todos[i].classList.contains('todo-list__todo')) {
-                    todos[i].style.display="flex";
+            for (let i = 0; i < this.todos.length; i++) {
+                if (this.todos[i].classList.contains('todo-list__todo')) {
+                    this.todos[i].style.display="flex";
                 }
             }
         });
         
         this.btnFilterActive.addEventListener('click', () => {
-            filter("flex", "none");
+            filter("flex", "none", this.todos);
         });
         
         this.btnFilterCompleted.addEventListener('click', () => {
-            filter('none', "flex");
+            filter('none', "flex", this.todos);
         });
       
         this.btnClearCompleted.addEventListener('click', () => {
-            for (let i = 0; i < todos.length; i++) {
-                if (todos[i].classList.contains('checked')) {
-                todos[i].remove();
+            for (let i = 0; i < this.todos.length; i++) {
+                if (this.todos[i].classList.contains('checked')) {
+                this.todos[i].remove();
                 }
             }
         });   
@@ -135,6 +133,7 @@ class TodoListItem {
     }
 }
 
+const itemTitle = document.querySelector('.todo-list__title');
 const todo = new TodoListItem(itemTitle);
 todo.render();
 todo.toggleCloseButton();
@@ -143,28 +142,5 @@ todo.deleteTodo();
 todo.filterItems();
 todo.toggleDarkMode();
 
-//Drag and drop
 
-function dragAndDrop() {
-
-    //1. Let's allow dragging of elements
-    for (let i = 0; i < todos.length; i++) {
-        todos[i].draggable = true;
-    }
-    
-    // 2. Adding an event to the starting and end of the drag
-    for (let i = 0; i < todos.length; i++) {
-        todos[i].addEventListener(`dragstart`, (e) => {
-            e.target.classList.add(`selected`);
-        })
-    }
-    
-    for (let i = 0; i < todos.length; i++) {
-        todos[i].addEventListener(`dragend`, (e) => {
-            e.target.classList.remove(`elected`);
-        })
-    }
-
-    // 3.Implementing the drag and drop logic
-}
 
