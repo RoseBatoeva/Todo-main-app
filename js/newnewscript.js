@@ -10,6 +10,16 @@ const itemTitle = document.querySelector('.todo-list__title'),
 let todos = listOfItems.children;
 let counter = 0;
 
+function filter(styleFirst,styleSecond) {
+    for (let i = 0; i < todos.length; i++) {
+        if (!todos[i].classList.contains('checked')) {
+            todos[i].style.display = styleFirst;
+        } else if (todos[i].classList.contains('checked')) {
+            todos[i].style.display = styleSecond;
+        }
+    }
+}
+
 class TodoListItem {
     constructor (title) {
         this.title = title;
@@ -94,16 +104,6 @@ class TodoListItem {
                 }
             }
         });
-
-        function filter(styleFirst,styleSecond) {
-            for (let i = 0; i < todos.length; i++) {
-                if (!todos[i].classList.contains('checked')) {
-                    todos[i].style.display = styleFirst;
-                } else if (todos[i].classList.contains('checked')) {
-                    todos[i].style.display = styleSecond;
-                }
-            }
-        }
         
         btnFilterActive.addEventListener('click', () => {
             filter("flex", "none");
