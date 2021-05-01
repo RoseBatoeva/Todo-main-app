@@ -1,132 +1,6 @@
-const input = document.querySelector('input'),
-      listTodo = document.querySelector('.todo-list__items'),
-      allItemsBtn = document.querySelector('#all-items'),
-      activeItemsBtn = document.querySelector('#active-items'), 
-      completedItemsBtn = document.querySelector('#completed-items'),
-      clearCompletedBtn = document.querySelector('.todo-list__clear-completed'),
-      counterText = document.querySelector('#counter');
-
-let todos = listTodo.children;
-let counter = 0;
-
-class Todo {
-    constructor (title) {
-        this.title = title;
-    }
-    
-    render () {
-        const todo = document.createElement('div');
-        todo.className = 'todo';
-        todo.innerHTML = `
-            <div class="emptyCircle"></div>          
-            <div class = 'todo-text'>${this.title}</div>
-            <img src="img/icon-cross.svg" alt="icon-cross" class="close-button hidden">
-        `;
-        
-        return todo;
-    }
-}
-
-//Create a new element-todo.
-function createTodo() {
-    const newDiv = new Todo (input.value);
-    const newTodo = newDiv.render(); 
-    
-    document.querySelector(".todo-list__items").append(newTodo);
-
-    input.value = '';
-    return newTodo;
-}
-
-//Add new created element to the list if click on "Enter";
-function addTodo() {
-    input.addEventListener('keydown', (e) => {
-        if (e.key == "Enter") {
-            if (input.value !== '') {
-                createTodo();
-
-                //Drag and drop
-                dragAndDrop();
-
-                //Counter
-                counter = counter + 1;
-                counterText.textContent = counter;
-            } else {
-                alert('Please write a new todo');
-            }
-        }
-    });
-}
-
-addTodo();
-
-//Add hovering to a close button
-
-function toggleCloseButton() {
-    listTodo.addEventListener('mouseover', (e) => {
-        if(e.target.classList.contains('todo')) {
-            e.target.lastElementChild.classList.remove('hidden');
-        }
-    });
-    
-    listTodo.addEventListener('mouseout', (e) => {
-        if(e.target.classList.contains('todo')) {
-            e.target.lastElementChild.classList.add('hidden');
-        }
-    });
-}
-
-toggleCloseButton();
-
-//Toggle to checked classes if click on checkmark 
-
-function checkTodo() {
-    listTodo.addEventListener('click', (e) => {
-        if (e.target.classList.contains('emptyCircle')) {
-            e.target.classList.toggle('checked-circle');
-            e.target.parentElement.classList.toggle('checked');
-
-                //Counter 
-                if (e.target.className == 'emptyCircle checked-circle') {
-                    counter = counter - 1;
-                    counterText.textContent = counter;
-                } else if (e.target.className == 'emptyCircle') {
-                    counter = counter + 1;
-                    counterText.textContent = counter;
-                }
-        }; 
-    });
-}
-
-checkTodo();
-
-//Delete item if click on close button
-
-function deleteTodo() {
-    listTodo.addEventListener('click', (e) => {
-        if (e.target.classList.contains('close-button')) {
-            e.target.parentElement.remove();
-
-            //Counter
-            if (e.target.parentElement.className == 'todo') {
-                counter = counter - 1;
-                counterText.textContent = counter; 
-            }
-        }
-    });
-}
-
-deleteTodo();
-
-//Filter
-
-allItemsBtn.addEventListener('click', () => {
-    for (let i = 0; i < todos.length; i++) {
-        if (todos[i].classList.contains('todo')) {
-            todos[i].style.display="flex";
-        }
-    }
-});
+const itemTitle = document.querySelector('.todo-list__title'),
+      listOfItems = document.querySelector('.todo-list__items');
+let todos = listOfItems.children;
 
 function filter(styleFirst,styleSecond) {
     for (let i = 0; i < todos.length; i++) {
@@ -138,40 +12,136 @@ function filter(styleFirst,styleSecond) {
     }
 }
 
-activeItemsBtn.addEventListener('click', () => {
-    filter("flex", "none");
-});
+class TodoListItem {
+    constructor (title) {
+        this.title = title;
+        this.btnFilterAllItems = document.querySelector('.todo-list__filter--all');
+        this.btnFilterActive = document.querySelector('.todo-list__filter--active'); 
+        this.btnFilterCompleted = document.querySelector('.todo-list__filter--completed');
+        this.btnClearCompleted = document.querySelector('.todo-list__filter--clear-completed');
+        this.btnToggleTheme = document.querySelector('.btn-toggle-theme');
+        this.counterContent = document.querySelector('.counter');
+        this.counter = 0;
+    }
 
-completedItemsBtn.addEventListener('click', () => {
-    filter('none', "flex");
-});
+    render() {       
+        this.title.addEventListener('keydown', (e) => {
+            if(e.key === 'Enter') {
+                let newItem = document.createElement('div');
+                newItem.className = 'todo-list__todo ';
+                newItem.innerHTML = `
+                    <div class="emptyCircle"></div>          
+                    <div class = 'todo-list__todo-content'>${this.title.value}</div>
+                    <img src="img/icon-cross.svg" alt="icon-cross" class="todo-list__todo-delete-btn hidden">
+                `;
 
-//Button "clear completed"
+                if (this.title.value !== '') {
+                    listOfItems.append(newItem);
+                    this.title.value = '';
 
-function clearCompleted() {
-    clearCompletedBtn.addEventListener('click', () => {
-        for (let i = 0; i < todos.length; i++) {
-            if (todos[i].classList.contains('checked')) {
-                todos[i].remove();
+                    //Counter
+                    this.counter = this.counter + 1;
+                    this.counterContent.textContent = this.counter;
+                } else {
+                    alert('Please write a new todo');
+                }
             }
-        }
-    });  
+        });
+    }
+
+    toggleCloseButton() {
+        listOfItems.addEventListener('mouseover', (e) => {
+            if(e.target.classList.contains('todo-list__todo')) {
+                e.target.lastElementChild.classList.remove('hidden');
+            }
+        });
+    
+        listOfItems.addEventListener('mouseout', (e) => {
+            if(e.target.classList.contains('todo-list__todo')) {
+                e.target.lastElementChild.classList.add('hidden');
+            }
+        });
+    }
+
+    checkmarkTodo() {
+        listOfItems.addEventListener('click', (e) => {
+            if (e.target.classList.contains('emptyCircle')) {
+                e.target.classList.toggle('checked-circle');
+                e.target.parentElement.classList.toggle('checked');
+
+                //Counter 
+                if (e.target.className == 'emptyCircle checked-circle') {
+                    this.counter = this.counter - 1;
+                    this.counterContent.textContent = this.counter;
+                } else if (e.target.className == 'emptyCircle') {
+                    this.counter = this.counter + 1;
+                    this.counterContent.textContent = this.counter;
+                }
+            }
+        });
+    }
+
+    deleteTodo() {
+        listOfItems.addEventListener('click', (e) => {
+            if (e.target.classList.contains('todo-list__todo-delete-btn')) {
+                e.target.parentElement.remove();
+    
+                //Counter
+                if (!e.target.parentElement.classList.contains('checked')) {
+                    this.counter = this.counter - 1;
+                    this.counterContent.textContent = this.counter; 
+                }
+            }
+        });
+    }
+
+    filterItems() {
+        this.btnFilterAllItems.addEventListener('click', () => {
+            for (let i = 0; i < todos.length; i++) {
+                if (todos[i].classList.contains('todo-list__todo')) {
+                    todos[i].style.display="flex";
+                }
+            }
+        });
+        
+        this.btnFilterActive.addEventListener('click', () => {
+            filter("flex", "none");
+        });
+        
+        this.btnFilterCompleted.addEventListener('click', () => {
+            filter('none', "flex");
+        });
+      
+        this.btnClearCompleted.addEventListener('click', () => {
+            for (let i = 0; i < todos.length; i++) {
+                if (todos[i].classList.contains('checked')) {
+                todos[i].remove();
+                }
+            }
+        });   
+    }
+
+    toggleDarkMode() {
+        if(!localStorage.theme) localStorage.theme ='lightMode';
+        document.body.className = localStorage.theme;
+        this.btnToggleTheme.firstElementChild.src = document.body.classList.contains('darkTheme') ? 'img/icon-sun.svg' : 'img/icon-moon.svg';
+
+        this.btnToggleTheme.onclick = () => {
+            document.body.classList.toggle('darkTheme');
+            this.btnToggleTheme.firstElementChild.src = document.body.classList.contains('darkTheme') ? 'img/icon-sun.svg' : 'img/icon-moon.svg';
+
+            localStorage.theme = document.body.className || 'lightMode';
+        };
+    }
 }
 
-clearCompleted();
-
-//Toggle dark mode
-
-if(!localStorage.theme) localStorage.theme ='lightMode'
-document.body.className = localStorage.theme;
-toggleThemeBtn.firstElementChild.src = document.body.classList.contains('darkTheme') ? 'img/icon-sun.svg' : 'img/icon-moon.svg';
-
-toggleThemeBtn.onclick = () => {
-    document.body.classList.toggle('darkTheme');
-    toggleThemeBtn.firstElementChild.src = document.body.classList.contains('darkTheme') ? 'img/icon-sun.svg' : 'img/icon-moon.svg';
-
-    localStorage.theme = document.body.className || 'lightMode';
-};
+const todo = new TodoListItem(itemTitle);
+todo.render();
+todo.toggleCloseButton();
+todo.checkmarkTodo();
+todo.deleteTodo();
+todo.filterItems();
+todo.toggleDarkMode();
 
 //Drag and drop
 
