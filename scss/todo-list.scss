@@ -8,12 +8,12 @@
         overflow: auto;
     }
     &__todo {
-        border-bottom: solid 1px hsl(236, 33%, 92%);
-        height: 55px;
-        padding: 0 20px;
         display: flex;
         justify-content: flex-start;
         align-items: center;
+        height: 55px;
+        padding: 0 20px;
+        border-bottom: solid 1px hsl(236, 33%, 92%);        
         cursor: pointer;
     
             &:hover {
@@ -76,7 +76,8 @@
             justify-content: center;
             text-align: center;
         }
-        &__counter,&__filter--clear-completed{
+        &__counter,
+        &__filter--clear-completed{
             display: none;
         }
     }

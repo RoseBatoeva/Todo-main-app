@@ -1,18 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap');
 
 body {
-    font-family: 'Josefin Sans', sans-serif;
     display: flex;
     align-items: center;
-    flex-direction: column;
+    flex-direction: column;    
     background: url(../img/bg-desktop-light.jpg) no-repeat top center;
+    font-family: 'Josefin Sans', sans-serif;    
 }
 
 footer {
-    height: 100px;
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 100px;
     color: hsl(236, 9%, 61%);
 }
 
@@ -28,15 +28,15 @@ footer {
 }
 
 .emptyCircle {
-    width: 20px;
-    height: 20px;
-    margin-right: 20px;
-    border: solid 1px hsl(236, 9%, 61%) ;
-    border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
     flex: 0 0 auto;
+    width: 20px;
+    height: 20px;
+    margin-right: 20px;
+    border: solid 1px hsl(236, 9%, 61%) ;
+    border-radius: 50%;    
 }
 
 .checked {
