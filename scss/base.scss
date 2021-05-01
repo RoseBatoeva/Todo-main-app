@@ -16,7 +16,7 @@ footer {
     color: hsl(236, 9%, 61%);
 }
 
-._container {
+.container {
     width: 500px;
     background-color: #fff;
     border-radius: 5px;
@@ -55,7 +55,7 @@ footer {
         background: url(../img/bg-mobile-light.jpg) 0 0/100% auto no-repeat;
     }
 
-    ._container {
+    .container {
         width: 365px;
     }
 }
