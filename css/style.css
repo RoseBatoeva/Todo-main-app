@@ -225,6 +225,9 @@ footer {
   .todo-list__todo-content {
     width: 240px;
   }
+  .todo-list__todo-delete-btn {
+    display: block;
+  }
   .todo-list__footer {
     display: flex;
     justify-content: center;

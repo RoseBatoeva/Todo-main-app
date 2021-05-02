@@ -70,6 +70,10 @@
         &__todo-content {
             width: 240px;
         }
+
+        &__todo-delete-btn{
+            display: block;
+        }
  
         &__footer {
             display: flex;
