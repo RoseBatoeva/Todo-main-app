@@ -1,1 +1,1 @@
-https://rosebatoeva.github.io/todo-main-app/
+https://rosebatoeva.github.io/Todo-main-app/
