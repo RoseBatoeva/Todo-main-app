@@ -156,19 +156,6 @@ footer {
     width: 365px;
   }
 }
-.todo-list__add-item {
-  display: flex;
-  align-items: center;
-  height: 55px;
-  margin-bottom: 20px;
-  padding: 20px 20px 20px 60px;
-  color: #9394a5;
-  box-shadow: 0px 0px 20px #bbbbbe;
-}
-.todo-list__title {
-  width: 350px;
-}
-
 .todo-list__items-wrapper {
   color: #484b6a;
 }
@@ -237,6 +224,19 @@ footer {
     display: none;
   }
 }
+.todo-list__add-item {
+  display: flex;
+  align-items: center;
+  height: 55px;
+  margin-bottom: 20px;
+  padding: 20px 20px 20px 60px;
+  color: #9394a5;
+  box-shadow: 0px 0px 20px #bbbbbe;
+}
+.todo-list__title {
+  width: 350px;
+}
+
 body.darkTheme {
   background-color: #161722;
   background-image: url(../img/bg-desktop-dark.jpg);

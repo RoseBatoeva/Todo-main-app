@@ -1,14 +1,21 @@
 @charset "UTF-8";
 
-@import 'nullstyle.scss';
-@import 'base.scss';
+// 1. Vendors
+@import
+  'vendors/nullstyle';
 
-@import 'header.scss';
-@import 'create-new-todo.scss';
-@import 'todo-list.scss';
+// 2. Base stuff
+@import
+  'base/base';
 
-@import 'dark-theme.scss';
+// 3. Layout-related sections
+@import
+  'layout/header',
+  'layout/todo-list',
+  'layout/create-new-todo';
 
-
+// 4. Themes
+@import
+  'themes/dark-theme';
 
 
